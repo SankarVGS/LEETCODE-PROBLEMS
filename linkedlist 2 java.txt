@@ -1,0 +1,106 @@
+import java.io.*;
+
+public class LinkedList{
+    Node head=null;
+    static class Node{
+        int data;
+        Node next;
+        Node(int val){
+            data=val;
+            next=null;
+        }
+    }
+    public void ins(int val){
+        Node nn=new Node(val);
+        if(head==null){
+            head=nn;
+        }
+        else{
+            nn.next=head;
+            head=nn;
+        }
+
+    }
+    public void insat(LinkedList list,int val,int pos){
+        Node nn=new Node(val);
+        if(pos==0){
+            list.ins(val);
+
+        }
+        else{
+            int i=1;
+            Node cr=list.head;
+            while(i<pos){
+                if(cr==null){
+                    System.out.println("list index out of range");
+                    return;
+                }
+                cr=cr.next;
+                i+=1;
+
+            }
+            nn.next=cr.next;
+            cr.next=nn;
+
+        }
+
+    }
+    public void delete(LinkedList list,int pos){
+        if(head==null){
+            System.out.println("list is empty");
+        }
+        else if(pos==0){
+           Node cr= list.head;
+
+           head=cr.next;
+           cr.next=null;
+        }
+        else{
+            int i=0;
+            Node temp=list.head;
+            Node prev=null;
+
+            while(i<pos){
+
+                if(temp==null){
+                    System.out.println("list index exceeded");
+
+                    return;
+                }
+                prev=temp;
+
+                temp=temp.next;
+                i++;
+
+            }
+            prev.next=temp.next;
+            temp.next=null;
+
+
+
+
+        }
+
+    }
+    public static void printlist(LinkedList list){
+        Node cr=list.head;
+        while(cr!=null){
+            System.out.print(cr.data+" ");
+            cr=cr.next;
+        }
+    }
+    public static void main(String [] args){
+        LinkedList list=new LinkedList();
+        list.ins(5);
+        list.ins(10);
+        list.ins(15);
+        list.ins(7);
+        list.insat(list,12,1);
+        list.insat(list,100,7);
+        System.out.println("list before deletion");
+        printlist(list);
+        list.delete(list,4);
+        list.delete(list,10);
+
+    }
+}
