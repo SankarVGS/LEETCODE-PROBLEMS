@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int lps(char s[]){
+    
+    int n=strlen(s);
+    int mx=1,st=0;
+    for(int i=0;i<n;i++){
+        for(int j=i;j<n;j++){
+            int flag=1;
+            for(int k=0;k<(j-i+1)/2;k++){
+                if(s[i+k]!=s[j-k]){
+                    flag=0;
+                }
+                if(flag && (j-i+1)>mx){
+                    st=i;
+                    mx=j-i+1;
+                    
+                }
+                
+            }
+        }
+    }
+    return mx;
+    
+}
+
+int main() {
+    // Write C code here
+    
+    char s[100]="forgeeksskeegfor";
+    printf("%d",lps(s));
+
+    return 0;
+}
