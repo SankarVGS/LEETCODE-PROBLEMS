@@ -1,4 +1,4 @@
-LEETCODE PROBLEMS
+
 Leetcode solutions
-Leetcode weekly and Biweeklycontest solutions
+Leetcode weekly and Biweekly contest problems
 
