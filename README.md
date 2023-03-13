@@ -1,4 +1,4 @@
-# GOMATHISANKAR-V
+LEETCODE PROBLEMS
 Leetcode solutions
-Leetcode weekly and Biweekly challenges
-Projects
+Leetcode weekly and Biweeklycontest solutions
+
